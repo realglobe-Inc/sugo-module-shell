@@ -8,7 +8,7 @@ const index = require('../lib/index.js')
 const assert = require('assert')
 const co = require('co')
 
-describe('sugo-interface-shell', () => {
+describe('index', () => {
   before(() => co(function * () {
 
   }))

@@ -4,12 +4,13 @@
   "description": "Shell interface of SUGOS",
   "main": "lib",
   "scripts": {
-    "test": "./ci/test.js"
+    "test": "./ci/test.js",
+    "prepublish": "./ci/build.js"
   },
   "repository": "realglobe-Inc/sugo-interface-shell",
   "keywords": [
     "SUGOS",
-    "demo"
+    "interface"
   ],
   "author": {
     "email": "okunishitaka.com@gmail.com",
@@ -22,7 +23,8 @@
   },
   "homepage": "https://github.com/realglobe-Inc/sugo-interface-shell#readme",
   "dependencies": {
-    "co": "^4.6.0"
+    "co": "^4.6.0",
+    "debug": "^2.2.0"
   },
   "devDependencies": {
     "ape-covering": "^3.0.3",

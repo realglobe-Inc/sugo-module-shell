@@ -12,9 +12,7 @@ module.exports = apeTmpl.readmeMdBud({
   repo: pkg.repository,
   sections: 'doc/guides/*.md.hbs',
   badges: {
-    travis: false,
-    travisCom: true,
-    travisComToken: 'aeFzCpBZebyaRijpCFmm',
+    travis: true,
     codeclimate: false,
     codeclimateCoverage: false,
     gemnasium: false,
@@ -23,7 +21,9 @@ module.exports = apeTmpl.readmeMdBud({
   },
   overview: 'doc/overview.md',
   links: require('./doc/links'),
-  vars: {}
+  vars: {
+    spec: require('./lib')({}).$spec
+  }
 })
 
 if (!module.parent) {

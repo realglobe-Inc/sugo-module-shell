@@ -19,7 +19,7 @@ describe('sugo-interface-shell', () => {
 
   }))
 
-  it('Sugo demo interface', () => co(function * () {
+  it('Get interface spec.', () => co(function * () {
     let interface_ = sugoInterfaceShell({})
     assert.ok(interface_)
 
@@ -28,7 +28,13 @@ describe('sugo-interface-shell', () => {
     assert.ok(!specError)
   }))
 
-  it('Spawn the command', () => co(function * () {
+  it('Take ping-pong', () => co(function * () {
+    let interface_ = sugoInterfaceShell({})
+    let pong = yield interface_.ping({ params: [] })
+    assert.ok(pong)
+  }))
+
+  it('Spawn a command', () => co(function * () {
     let interface_ = sugoInterfaceShell({})
     assert.ok(interface_)
 
@@ -41,6 +47,8 @@ describe('sugo-interface-shell', () => {
       pipe: {
         on (ev, handler) {
         },
+        off (ev, handler) {
+        },
         emit (ev, data) {
           outs[ ev ] = data
         }
@@ -48,6 +56,16 @@ describe('sugo-interface-shell', () => {
     })
     assert.equal(existCode, 0)
     assert.ok(outs.stdout)
+  }))
+
+  it('Exec a command', () => co(function * () {
+    let interface_ = sugoInterfaceShell({})
+    assert.ok(interface_)
+
+    let result = yield interface_.exec({
+      params: [ 'echo | pwd' ]
+    })
+    assert.ok(result)
   }))
 })
 

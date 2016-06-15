@@ -10,17 +10,13 @@ const sugoInterfaceShell = require('sugo-interface-shell')
 const sugoSpot = require('sugo-spot')
 const co = require('co')
 
-const CLOUD_URL = 'http://my-sugo-cloud.example.com/spots'
-
 co(function * () {
-  let spot = sugoSpot(CLOUD_URL, {
+  let spot = sugoSpot('http://my-sugo-cloud.example.com/spots', {
     key: 'my-spot-01',
     interfaces: {
-      // Register the interface on spot
-      myInterface01: sugoInterfaceShell({})
+      // Register the interface on spot as "shell"
+      shell: sugoInterfaceShell({})
     }
   })
-
-// Connect to cloud server
   yield spot.connect()
 }).catch((err) => console.error(err))
