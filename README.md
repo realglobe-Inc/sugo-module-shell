@@ -125,7 +125,7 @@ co(function * () {
 
 ```
 
-Then, call the interface from remote url.
+Then, call the interface from remote terminal.
 
 ```javascript
 #!/usr/bin/env node
@@ -183,8 +183,15 @@ co(function * () {
 Methods
 ---------
 
-<a name="spawn"></a>
-### spawn(command, args, options) -> <code>number</code>
+The following methods are available from remote terminals for the interface.
+
++ [.spawn(command, args, options) -> number](#method-spawn)
++ [.exec(command, options) -> object](#method-exec)
++ [.ping(pong) -> string](#method-ping)
++ [.assert() -> boolean](#method-assert)
+
+<a name="method-spawn"></a>
+### .spawn(command, args, options) -> <code>number</code>
 
 Spawn a command and pipe io to event emitting.
 
@@ -193,8 +200,9 @@ Spawn a command and pipe io to event emitting.
 | command  | <code>string</code> |  The command to run |
 | args  | <code>array</code> |  List of string arguments |
 | options  | <code>Object</code> | Optional settings |
-<a name="exec"></a>
-### exec(command, options) -> <code>object</code>
+
+<a name="method-exec"></a>
+### .exec(command, options) -> <code>object</code>
 
 Execute a command and returns io as object.
 
@@ -202,6 +210,21 @@ Execute a command and returns io as object.
 | ----- | ---- | ----------- |
 | command  | <code>string</code> |  The command to run, with space-separated arguments |
 | options  | <code>Object</code> | Optional settings |
+
+<a name="method-ping"></a>
+### .ping(pong) -> <code>string</code>
+
+Test the reachability of a interface.
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| pong  | <code>string</code> | Pong message to return |
+
+<a name="method-assert"></a>
+### .assert() -> <code>boolean</code>
+
+Test if the spot fulfills system requirements
+
 
 
 <!-- Section from "doc/guides/03.Methods.md.hbs" End -->
@@ -226,6 +249,8 @@ This software is released under the [MIT License](https://github.com/realglobe-I
 Links
 ------
 
-+ [SUGOS](https://github.com/realglobe-Inc/sugos)
++ [SUGOS][sugos_url]
+
+[sugos_url]: https://github.com/realglobe-Inc/sugos
 
 <!-- Links End -->
