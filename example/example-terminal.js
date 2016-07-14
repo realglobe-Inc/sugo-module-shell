@@ -25,15 +25,14 @@ co(function * () {
     const out = (chunk) => process.stdout.write(chunk)
     const err = (chunk) => process.stderr.write(chunk)
 
-    let tail = shell.spawn('tail', [ '-f', '/var/log/app.log' ])
+    shell.on('stdout', out)
+    shell.on('stderr', err)
 
-    tail.on('stdout', out)
-    tail.on('stderr', err)
-
+    shell.spawn('tail', [ '-f', '/var/log/app.log' ])
     yield new Promise((resolve) => setTimeout(resolve, 3000))
 
-    tail.off('stdout', out)
-    tail.off('stderr', err)
+    shell.off('stdout', out)
+    shell.off('stderr', err)
   }
 
   // Execute a command
