@@ -237,6 +237,7 @@ Events
 The following events my be emitted from the interface.
 
 <a name="events"></a>
+
 | Param | Description |
 | ----- | ----------- |
 | "stdout"  | Standard out from spawned process. |
