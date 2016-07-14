@@ -228,6 +228,23 @@ Test if the spot fulfills system requirements
 
 <!-- Section from "doc/guides/03.Methods.md.hbs" End -->
 
+<!-- Section from "doc/guides/04.Events.md.hbs" Start -->
+
+<a name="section-doc-guides-04-events-md"></a>
+Events
+---------
+
+The following events my be emitted from the interface.
+
+<a name="events"></a>
+| Param | Description |
+| ----- | ----------- |
+| "stdout"  | Standard out from spawned process. |
+| "stderr"  | Standard error from spawned process. |
+
+
+<!-- Section from "doc/guides/04.Events.md.hbs" End -->
+
 
 <!-- Sections Start -->
 
