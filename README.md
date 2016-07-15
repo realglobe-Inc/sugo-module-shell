@@ -53,6 +53,7 @@ Shell module of SUGOS
 <!-- Section from "doc/guides/00.Requirements.md.hbs" Start -->
 
 <a name="section-doc-guides-00-requirements-md"></a>
+
 Requirements
 -----
 
@@ -81,6 +82,7 @@ Requirements
 <!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
 
 <a name="section-doc-guides-01-installation-md"></a>
+
 Installation
 -----
 
@@ -94,6 +96,7 @@ $ npm install sugo-module-shell --save
 <!-- Section from "doc/guides/02.Usage.md.hbs" Start -->
 
 <a name="section-doc-guides-02-usage-md"></a>
+
 Usage
 ---------
 
@@ -179,6 +182,7 @@ co(function * () {
 <!-- Section from "doc/guides/03.Methods.md.hbs" Start -->
 
 <a name="section-doc-guides-03-methods-md"></a>
+
 Methods
 ---------
 
@@ -231,6 +235,7 @@ Test if the actor fulfills system requirements
 <!-- Section from "doc/guides/04.Events.md.hbs" Start -->
 
 <a name="section-doc-guides-04-events-md"></a>
+
 Events
 ---------
 

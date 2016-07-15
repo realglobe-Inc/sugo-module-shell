@@ -30,30 +30,25 @@ describe('sugo-module-shell', () => {
 
   it('Take ping-pong', () => co(function * () {
     let module = sugoModuleShell({})
-    let pong = yield module.ping({ params: [] })
+    let pong = yield module.ping()
     assert.ok(pong)
   }))
 
   it('Spawn a command', () => co(function * () {
     let module = sugoModuleShell({})
+    Object.assign(module, {
+      on (ev, handler) {
+      },
+      off (ev, handler) {
+      },
+      emit (ev, data) {
+        outs[ ev ] = data
+      }
+    })
     assert.ok(module)
 
     let outs = {}
-    let existCode = yield module.spawn({
-      params: [
-        'ls',
-        [ '-a' ]
-      ],
-      pipe: {
-        on (ev, handler) {
-        },
-        off (ev, handler) {
-        },
-        emit (ev, data) {
-          outs[ ev ] = data
-        }
-      }
-    })
+    let existCode = yield module.spawn('ls', [ '-a' ])
     assert.equal(existCode, 0)
     assert.ok(outs.stdout)
   }))
@@ -62,9 +57,7 @@ describe('sugo-module-shell', () => {
     let module = sugoModuleShell({})
     assert.ok(module)
 
-    let result = yield module.exec({
-      params: [ 'echo | pwd' ]
-    })
+    let result = yield module.exec('echo | pwd')
     assert.ok(result)
   }))
 
