@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 
 /**
- * Apply the interface into spot
+ * Apply the module into actor
  */
 'use strict'
 
-const sugoInterfaceShell = require('sugo-interface-shell')
+const sugoModuleShell = require('sugo-module-shell')
 
-const sugoSpot = require('sugo-spot')
+const sugoActor = require('sugo-actor')
 const co = require('co')
 
 co(function * () {
-  let spot = sugoSpot('http://my-sugo-cloud.example.com/spots', {
-    key: 'my-spot-01',
-    interfaces: {
-      // Register the interface on spot as "shell"
-      shell: sugoInterfaceShell({})
+  let actor = sugoActor('http://my-sugo-cloud.example.com/actors', {
+    key: 'my-actor-01',
+    modules: {
+      // Register the module on actor as "shell"
+      shell: sugoModuleShell({})
     }
   })
-  yield spot.connect()
+  yield actor.connect()
 }).catch((err) => console.error(err))

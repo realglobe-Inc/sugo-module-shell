@@ -17,9 +17,9 @@ describe('index', () => {
 
   }))
 
-  it('Sugo demo interface', () => co(function * () {
-    let interface_ = index({})
-    assert.ok(interface_)
+  it('Sugo demo module', () => co(function * () {
+    let module_ = index({})
+    assert.ok(module_)
   }))
 })
 

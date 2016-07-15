@@ -1,16 +1,17 @@
 {
-  "name": "sugo-interface-shell",
-  "version": "1.0.8",
-  "description": "Shell interface of SUGOS",
+  "name": "sugo-module-shell",
+  "version": "2.0.0",
+  "description": "Shell module of SUGOS",
   "main": "lib",
   "scripts": {
     "test": "./ci/test.js",
     "prepublish": "./ci/build.js"
   },
-  "repository": "realglobe-Inc/sugo-interface-shell",
+  "repository": "realglobe-Inc/sugo-module-shell",
   "keywords": [
     "SUGOS",
-    "interface"
+    "module",
+    "shell"
   ],
   "author": {
     "email": "okunishitaka.com@gmail.com",
@@ -19,9 +20,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/realglobe-Inc/sugo-interface-shell/issues"
+    "url": "https://github.com/realglobe-Inc/sugo-module-shell/issues"
   },
-  "homepage": "https://github.com/realglobe-Inc/sugo-interface-shell#readme",
+  "homepage": "https://github.com/realglobe-Inc/sugo-module-shell#readme",
   "dependencies": {
     "co": "^4.6.0",
     "debug": "^2.2.0",
@@ -31,10 +32,10 @@
     "ape-tmpl": "^5.0.12",
     "coz": "^6.0.5",
     "injectmock": "^2.0.0",
-    "sg-schemas": "^1.1.4",
+    "sg-schemas": "^2.0.4",
     "sg-validator": "^1.0.1",
-    "sugo-ci-interface": "^1.0.0",
-    "sugos-assets": "^1.1.13"
+    "sugo-ci-module": "^2.0.1",
+    "sugos-assets": "^2.0.1"
   },
   "engines": {
     "node": ">=6",

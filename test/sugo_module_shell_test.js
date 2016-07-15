@@ -1,16 +1,16 @@
 /**
- * Test case for sugoInterfaceShell.
+ * Test case for sugoModuleShell.
  * Runs with mocha.
  */
 'use strict'
 
-const sugoInterfaceShell = require('../lib/sugo_interface_shell.js')
+const sugoModuleShell = require('../lib/sugo_module_shell.js')
 const assert = require('assert')
 const sgSchemas = require('sg-schemas')
 const sgValidator = require('sg-validator')
 const co = require('co')
 
-describe('sugo-interface-shell', () => {
+describe('sugo-module-shell', () => {
   before(() => co(function * () {
 
   }))
@@ -19,27 +19,27 @@ describe('sugo-interface-shell', () => {
 
   }))
 
-  it('Get interface spec.', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
-    assert.ok(interface_)
+  it('Get module spec.', () => co(function * () {
+    let module = sugoModuleShell({})
+    assert.ok(module)
 
-    let { $spec } = interface_
-    let specError = sgValidator(sgSchemas.interfaceSpec).validate($spec)
+    let { $spec } = module
+    let specError = sgValidator(sgSchemas.moduleSpec).validate($spec)
     assert.ok(!specError)
   }))
 
   it('Take ping-pong', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
-    let pong = yield interface_.ping({ params: [] })
+    let module = sugoModuleShell({})
+    let pong = yield module.ping({ params: [] })
     assert.ok(pong)
   }))
 
   it('Spawn a command', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
-    assert.ok(interface_)
+    let module = sugoModuleShell({})
+    assert.ok(module)
 
     let outs = {}
-    let existCode = yield interface_.spawn({
+    let existCode = yield module.spawn({
       params: [
         'ls',
         [ '-a' ]
@@ -59,20 +59,20 @@ describe('sugo-interface-shell', () => {
   }))
 
   it('Exec a command', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
-    assert.ok(interface_)
+    let module = sugoModuleShell({})
+    assert.ok(module)
 
-    let result = yield interface_.exec({
+    let result = yield module.exec({
       params: [ 'echo | pwd' ]
     })
     assert.ok(result)
   }))
 
   it('Do assert', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
+    let module = sugoModuleShell({})
     let caught
     try {
-      yield interface_.assert({})
+      yield module.assert({})
     } catch (err) {
       caught = err
     }
@@ -80,9 +80,9 @@ describe('sugo-interface-shell', () => {
   }))
 
   it('Compare methods with spec', () => co(function * () {
-    let interface_ = sugoInterfaceShell({})
-    let { $spec } = interface_
-    let implemented = Object.keys(interface_).filter((name) => !/^[\$_]/.test(name))
+    let module = sugoModuleShell({})
+    let { $spec } = module
+    let implemented = Object.keys(module).filter((name) => !/^[\$_]/.test(name))
     let described = Object.keys($spec.methods).filter((name) => !/^[\$_]/.test(name))
     for (let name of implemented) {
       assert.ok(!!~described.indexOf(name), `${name} method should be described in spec`)
