@@ -1,6 +1,6 @@
 {
   "name": "sugo-module-shell",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Shell module of SUGOS",
   "main": "lib",
   "scripts": {
