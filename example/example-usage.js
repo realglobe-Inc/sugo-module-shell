@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Apply the module into actor
+ * Example usage to register module on actor
+ * @see https://github.com/realglobe-Inc/sugo-actor
  */
 'use strict'
 

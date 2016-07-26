@@ -1,10 +1,10 @@
 /**
- * Test case for sugoModuleShell.
+ * Test case for Shell.
  * Runs with mocha.
  */
 'use strict'
 
-const sugoModuleShell = require('../lib/sugo_module_shell.js')
+const Shell = require('../lib/shell.js')
 const assert = require('assert')
 const sgSchemas = require('sg-schemas')
 const sgValidator = require('sg-validator')
@@ -20,7 +20,7 @@ describe('sugo-module-shell', () => {
   }))
 
   it('Get module spec.', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     assert.ok(module)
 
     let { $spec } = module
@@ -29,13 +29,13 @@ describe('sugo-module-shell', () => {
   }))
 
   it('Take ping-pong', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     let pong = yield module.ping()
     assert.ok(pong)
   }))
 
   it('Spawn a command', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     Object.assign(module, {
       on (ev, handler) {
       },
@@ -54,7 +54,7 @@ describe('sugo-module-shell', () => {
   }))
 
   it('Exec a command', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     assert.ok(module)
 
     let result = yield module.exec('echo | pwd')
@@ -62,7 +62,7 @@ describe('sugo-module-shell', () => {
   }))
 
   it('Do assert', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     let caught
     try {
       yield module.assert({})
@@ -73,9 +73,11 @@ describe('sugo-module-shell', () => {
   }))
 
   it('Compare methods with spec', () => co(function * () {
-    let module = sugoModuleShell({})
+    let module = new Shell({})
     let { $spec } = module
-    let implemented = Object.keys(module).filter((name) => !/^[\$_]/.test(name))
+    let implemented = Object.getOwnPropertyNames(Shell.prototype)
+      .filter((name) => !/^[\$_]/.test(name))
+      .filter((name) => !~[ 'constructor' ].indexOf(name))
     let described = Object.keys($spec.methods).filter((name) => !/^[\$_]/.test(name))
     for (let name of implemented) {
       assert.ok(!!~described.indexOf(name), `${name} method should be described in spec`)

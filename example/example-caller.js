@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Example control from remote caller
+ * Example to call from caller
+ * @see https://github.com/realglobe-Inc/sugo-caller
  */
 'use strict'
 

@@ -5,11 +5,15 @@
 'use strict'
 
 const pkg = require('../package.json')
+const { moduleIndex } = require('sg-templates')
 
 module.exports = {
   force: true,
   mode: '444',
+  tmpl: moduleIndex,
   data: {
+    name: 'Shell',
+    sub: {},
     pkg
   }
 }
@@ -17,4 +21,3 @@ module.exports = {
 if (!module.parent) {
   require('coz').render(__filename)
 }
-
