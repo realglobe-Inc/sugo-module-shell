@@ -1,6 +1,6 @@
 {
   "name": "sugo-module-shell",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Shell module for SUGOS",
   "main": "lib",
   "browser": "shim/browser",
