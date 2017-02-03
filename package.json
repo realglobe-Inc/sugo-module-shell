@@ -5,8 +5,8 @@
   "main": "lib",
   "browser": "shim/browser",
   "scripts": {
-    "test": "./ci/test.js",
-    "prepublish": "./ci/build.js && ./ci/browser.js"
+    "test": "node ./ci/test.js",
+    "prepare": "node ./ci/build.js && node ./ci/shim.js"
   },
   "repository": "realglobe-Inc/sugo-module-shell",
   "keywords": [
@@ -19,7 +19,7 @@
     "name": "Taka Okunishi",
     "url": "http://okunishitaka.com"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/realglobe-Inc/sugo-module-shell/issues"
   },
@@ -36,16 +36,13 @@
     "injectmock": "^2.0.0",
     "sg-schemas": "^2.0.5",
     "sg-templates": "^1.0.3",
-    "sg-travis": "^1.1.25",
     "sg-validator": "^1.0.1",
-    "sugo-ci-module": "^2.0.5",
-    "sugos-assets": "^2.0.1"
+    "sugo-ci-module": "^3.0.2",
+    "sugos-assets": "^2.0.1",
+    "sugos-travis": "^2.0.7"
   },
   "engines": {
     "node": ">=6",
-    "npm": ">=3"
-  },
-  "publishConfig": {
-    "registry": "https://realglobe.artifactoryonline.com/realglobe/api/npm/npm-local"
+    "npm": ">=4"
   }
 }
